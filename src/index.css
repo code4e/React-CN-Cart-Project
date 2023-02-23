@@ -29,3 +29,13 @@ body {
 .action-icons:hover {
   cursor: pointer;
 }
+.price-container{
+  display: flex;
+  justify-content: space-between;
+  width: 15vw;
+  margin: 10px;
+  background-color: aliceblue;
+  padding: 10px;
+  position: relative;
+  top: 10rem;
+}

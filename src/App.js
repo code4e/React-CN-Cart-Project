@@ -1,6 +1,7 @@
 import React from 'react';
 import Cart from './Cart';
 import Navbar from './Navbar';
+import TotalPrice from './TotalPrice';
 
 class App extends React.Component {
   constructor() {
@@ -32,6 +33,7 @@ class App extends React.Component {
   render() {
     const { items } = this.state;
     const cartItemCount = items.reduce((accumulator, currentItem) => currentItem.qty + accumulator, 0);
+    const cartTotalPrice = items.reduce((accumulator, currentItem) => (currentItem.qty * currentItem.price) + accumulator, 0);
 
     const updateItemsHandler = (newItem) => {
       let newItems = [];
@@ -57,6 +59,7 @@ class App extends React.Component {
         onUpdateItems={updateItemsHandler}
         onDeleteItems={deleteItemHandler}
       />
+      <TotalPrice cartTotalPrice={cartTotalPrice}/>
     </div>
     );
   }
