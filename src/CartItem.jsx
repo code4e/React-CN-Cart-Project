@@ -10,18 +10,6 @@ const styles = {
 };
 
 class CartItem extends React.Component {
-    constructor() {
-        super();
-        
-        this.state = {
-            title: "Phone",
-            price: 999,
-            qty: 2,
-            img: "item"
-        }
-
-    }
-
     qtyHandler = e =>  {
         let qtyChecker = e.target.alt;
         // console.log(this.props);
@@ -33,8 +21,6 @@ class CartItem extends React.Component {
             qty: newQty
         }
         this.props.updateItems(newItemState);
-        // if(this.state.qty === 0 && qtyChecker === "decrease") return; 
-        // this.setState(prevState => ({ qty: prevState.qty + ( qtyChecker === "decrease" ? -1 : 1)}));
     }
 
     deleteItemHandler = e => {
@@ -45,7 +31,7 @@ class CartItem extends React.Component {
     render() {
         const { title, price, qty } = this.props.item;
         return (
-            <div className="cart-item">
+            <li className="cart-item">
                 <div className="left-block">
                     <img src="" alt="" style={styles.image} />
                 </div>
@@ -60,7 +46,7 @@ class CartItem extends React.Component {
                     </div>
                 </div>
 
-            </div>
+            </li>
         );
     }
 }
